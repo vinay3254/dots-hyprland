@@ -30,6 +30,16 @@ Button {
     property color colRipple: Appearance?.colors.colLayer1Active ?? "#D6CEE2"
     property color colRippleToggled: Appearance?.colors.colPrimaryActive ?? "#D6CEE2"
 
+    scale: root.down ? 0.95 : (root.hovered ? 1.06 : 1.0)
+    transformOrigin: Item.Center
+    Behavior on scale {
+        NumberAnimation {
+            duration: 220
+            easing.type: Easing.BezierSpline
+            easing.bezierCurve: [0.34, 1.56, 0.64, 1.0, 1, 1] // Apple Spring Overshoot
+        }
+    }
+
     opacity: root.enabled ? 1 : 0.4
     property color buttonColor: ColorUtils.transparentize(root.toggled ? 
         (root.hovered ? colBackgroundToggledHover : 

@@ -54,6 +54,16 @@ Button {
             root.hovered ? colBackgroundHover : 
             colBackground)) : colBackground
 
+    scale: root.down ? 0.95 : (root.hovered ? 1.06 : 1.0)
+    transformOrigin: Item.Center
+    Behavior on scale {
+        NumberAnimation {
+            duration: 220
+            easing.type: Easing.BezierSpline
+            easing.bezierCurve: [0.34, 1.56, 0.64, 1.0, 1, 1]
+        }
+    }
+
     onDownChanged: {
         if (root.down) {
             if (root.parent.clickIndex !== undefined) {
