@@ -1,5 +1,5 @@
 -- Hyprland Custom Configuration
--- Built following Apple Design Principles (Fluid Springs, Natural Decay, Translucent Materials)
+-- Built following Apple Design Principles (Fluid Springs, Natural Decay, Translucent Materials, 1:1 Gestures)
 
 -- 1. General & Layout Settings
 hl.config({
@@ -21,10 +21,22 @@ hl.config({
             respect_gaps = true
         }
     },
+    gestures = {
+        -- 1:1 Direct Manipulation Trackpad Responsiveness (Apple trackpad feel)
+        workspace_swipe_distance = 320,
+        workspace_swipe_cancel_ratio = 0.15,
+        workspace_swipe_min_speed_to_force = 10,
+        workspace_swipe_direction_lock = true,
+        workspace_swipe_direction_lock_threshold = 10,
+        workspace_swipe_create_new = true
+    },
     decoration = {
-        -- Apple continuous corner curvature
+        -- Continuous Curvature (Apple squircle contour)
         rounding = 14,
         rounding_power = 2.2,
+        dim_inactive = true,
+        dim_strength = 0.06,
+        dim_special = 0.3,
         blur = {
             enabled = true,
             size = 12,
@@ -111,7 +123,7 @@ hl.animation({
     bezier = "appleSnappy"
 })
 
--- Workspaces Transition (Spaces Swipe Feel)
+-- Workspaces Transition (Spaces Inertial Swipe)
 hl.animation({
     leaf = "workspaces",
     enabled = true,
