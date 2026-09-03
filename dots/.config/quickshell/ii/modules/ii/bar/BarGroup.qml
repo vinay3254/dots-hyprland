@@ -19,7 +19,7 @@ Item {
             leftMargin: root.vertical ? 4 : 0
             rightMargin: root.vertical ? 4 : 0
         }
-        color: Config.options?.bar.borderless ? "transparent" : Appearance.colors.colLayer1
+        color: Config.options?.bar.borderless ? "transparent" : "#000000"
         border.width: 1
         border.color: Appearance.colors.colLayer0Border
         radius: Appearance.rounding.full
