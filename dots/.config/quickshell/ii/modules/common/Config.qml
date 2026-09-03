@@ -234,10 +234,10 @@ Singleton {
                     }
                 }
                 property bool bottom: false // Instead of top
-                property int cornerStyle: 0 // 0: Hug | 1: Float | 2: Plain rectangle
+                property int cornerStyle: 1 // 0: Hug | 1: Float | 2: Plain rectangle
                 property bool floatStyleShadow: true // Show shadow behind bar when cornerStyle == 1 (Float)
                 property bool borderless: false // true for no grouping of items
-                property string topLeftIcon: "spark" // Options: "distro" or any icon name in ~/.config/quickshell/ii/assets/icons
+                property string topLeftIcon: "distro" // Options: "distro" or any icon name in ~/.config/quickshell/ii/assets/icons
                 property bool showBackground: true
                 property bool verbose: true
                 property bool vertical: false
@@ -323,14 +323,14 @@ Singleton {
             }
 
             property JsonObject dock: JsonObject {
-                property bool enable: false
-                property bool monochromeIcons: true
-                property real height: 60
+                property bool enable: true
+                property bool monochromeIcons: false
+                property real height: 64
                 property real hoverRegionHeight: 2
-                property bool pinnedOnStartup: false
-                property bool hoverToReveal: true // When false, only reveals on empty workspace
+                property bool pinnedOnStartup: true
+                property bool hoverToReveal: false // When false, stays visible on desktop
                 property list<string> pinnedApps: [ // IDs of pinned entries
-                    "org.kde.dolphin", "kitty",]
+                    "kitty", "google-chrome-stable", "code", "org.kde.dolphin", "spotify" ]
                 property list<string> ignoredAppRegexes: []
             }
 
