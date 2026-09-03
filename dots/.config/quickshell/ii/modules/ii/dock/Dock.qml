@@ -31,7 +31,7 @@ Scope { // Scope
 
             Timer {
                 id: autoHideTimer
-                interval: 3000 // Stay visible for 3 seconds after mouse leaves
+                interval: 1000 // Disappear right after 1 second
                 repeat: false
                 onTriggered: {
                     dockRoot.poppedUp = false;

@@ -54,7 +54,7 @@ Button {
             root.hovered ? colBackgroundHover : 
             colBackground)) : colBackground
 
-    scale: root.down ? 0.95 : (root.hovered ? 1.06 : 1.0)
+    scale: root.down ? 0.92 : (root.hovered ? 1.15 : 1.0)
     transformOrigin: Item.Center
     Behavior on scale {
         NumberAnimation {

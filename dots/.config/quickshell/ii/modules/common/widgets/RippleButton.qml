@@ -30,7 +30,7 @@ Button {
     property color colRipple: Appearance?.colors.colLayer1Active ?? "#D6CEE2"
     property color colRippleToggled: Appearance?.colors.colPrimaryActive ?? "#D6CEE2"
 
-    scale: root.down ? 0.95 : (root.hovered ? 1.06 : 1.0)
+    scale: root.down ? 0.92 : (root.hovered ? 1.18 : 1.0)
     transformOrigin: Item.Center
     Behavior on scale {
         NumberAnimation {
