@@ -20,7 +20,9 @@ Item {
             rightMargin: root.vertical ? 4 : 0
         }
         color: Config.options?.bar.borderless ? "transparent" : Appearance.colors.colLayer1
-        radius: Appearance.rounding.small
+        border.width: 1
+        border.color: Appearance.colors.colLayer0Border
+        radius: Appearance.rounding.full
     }
 
     GridLayout {
