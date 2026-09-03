@@ -32,7 +32,14 @@ hl.gesture({
     fingers = 4,
     direction = "down",
     action = function()
-        hl.dispatch(hl.dsp.global("quickshell:overviewWorkspacesToggle"))
+        hl.dispatch(hl.dsp.global("quickshell:sidebarRightToggle"))
+    end
+})
+hl.gesture({
+    fingers = 4,
+    direction = "pinch",
+    action = function()
+        hl.dispatch(hl.dsp.exec_cmd("pkill fuzzel || fuzzel"))
     end
 })
 
