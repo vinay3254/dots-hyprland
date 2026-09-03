@@ -12,12 +12,13 @@ RippleButton {
     property bool aiChatEnabled: false
     property bool translatorEnabled: Config.options.sidebar.translator.enable
     property bool animeEnabled: Config.options.policies.weeb !== 0
-    visible: translatorEnabled || animeEnabled
+    visible: true
 
     property real buttonPadding: 8
     implicitWidth: distroIcon.width + buttonPadding * 2
     implicitHeight: distroIcon.height + buttonPadding * 2
     buttonRadius: Appearance.rounding.full
+    colBackground: Appearance.colors.colLayer1
     colBackgroundHover: Appearance.colors.colLayer1Hover
     colRipple: Appearance.colors.colLayer1Active
     colBackgroundToggled: Appearance.colors.colSecondaryContainer
