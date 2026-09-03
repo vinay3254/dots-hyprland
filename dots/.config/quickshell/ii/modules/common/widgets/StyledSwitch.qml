@@ -3,15 +3,15 @@ import QtQuick
 import QtQuick.Controls
 
 /**
- * Material 3 switch. See https://m3.material.io/components/switch/overview
+ * Apple macOS Style Switch
  */
 Switch {
     id: root
-    property real scale: 0.75 // Default in m3 spec is huge af
-    implicitHeight: 32 * root.scale
-    implicitWidth: 52 * root.scale
-    property color activeColor: Appearance?.colors.colPrimary ?? "#685496"
-    property color inactiveColor: Appearance?.colors.colSurfaceContainerHighest ?? "#45464F"
+    property real scale: 0.8
+    implicitHeight: 28
+    implicitWidth: 48
+    property color activeColor: "#34C759" // Apple System Green
+    property color inactiveColor: "#2C2C2E" // Dark Track
 
     PointingHandInteraction {}
 
@@ -21,50 +21,34 @@ Switch {
         height: parent.height
         radius: Appearance?.rounding.full ?? 9999
         color: root.checked ? root.activeColor : root.inactiveColor
-        border.width: 2 * root.scale
-        border.color: root.checked ? root.activeColor : Appearance.m3colors.m3outline
+        border.width: 1
+        border.color: root.checked ? root.activeColor : "rgba(255, 255, 255, 0.08)"
 
         Behavior on color {
-            animation: Appearance.animation.elementMoveFast.colorAnimation.createObject(this)
-        }
-        Behavior on border.color {
-            animation: Appearance.animation.elementMoveFast.colorAnimation.createObject(this)
+            ColorAnimation {
+                duration: 200
+                easing.type: Easing.BezierSpline
+                easing.bezierCurve: [0.16, 1.0, 0.3, 1.0, 1, 1]
+            }
         }
     }
 
-    // Custom thumb styling
+    // Custom thumb knob styling (Apple smooth sliding spring)
     indicator: Rectangle {
-        width: (root.pressed || root.down) ? (28 * root.scale) : root.checked ? (24 * root.scale) : (16 * root.scale)
-        height: (root.pressed || root.down) ? (28 * root.scale) : root.checked ? (24 * root.scale) : (16 * root.scale)
-        radius: Appearance.rounding.full
-        color: root.checked ? Appearance.m3colors.m3onPrimary : Appearance.m3colors.m3outline
+        width: 22
+        height: 22
+        radius: 11
+        color: "#FFFFFF"
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        anchors.leftMargin: root.checked ? ((root.pressed || root.down) ? (22 * root.scale) : 24 * root.scale) : ((root.pressed || root.down) ? (2 * root.scale) : 8 * root.scale)
+        anchors.leftMargin: root.checked ? (parent.width - width - 3) : 3
 
         Behavior on anchors.leftMargin {
             NumberAnimation {
-                duration: Appearance.animationCurves.expressiveFastSpatialDuration
+                duration: 220
                 easing.type: Easing.BezierSpline
-                easing.bezierCurve: Appearance.animationCurves.expressiveFastSpatial
+                easing.bezierCurve: [0.34, 1.45, 0.64, 1.0, 1, 1] // Apple Spring
             }
-        }
-        Behavior on width {
-            NumberAnimation {
-                duration: Appearance.animationCurves.expressiveFastSpatialDuration
-                easing.type: Easing.BezierSpline
-                easing.bezierCurve: Appearance.animationCurves.expressiveFastSpatial
-            }
-        }
-        Behavior on height {
-            NumberAnimation {
-                duration: Appearance.animationCurves.expressiveFastSpatialDuration
-                easing.type: Easing.BezierSpline
-                easing.bezierCurve: Appearance.animationCurves.expressiveFastSpatial
-            }
-        }
-        Behavior on color {
-            animation: Appearance.animation.elementMoveFast.colorAnimation.createObject(this)
         }
     }
 }

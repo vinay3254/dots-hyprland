@@ -109,42 +109,71 @@ ApplicationWindow {
             }
         }
 
-        Item { // Titlebar
+        Item { // macOS Titlebar
             visible: Config.options?.windows.showTitlebar
             Layout.fillWidth: true
             Layout.fillHeight: false
-            implicitHeight: Math.max(titleText.implicitHeight, windowControlsRow.implicitHeight)
+            implicitHeight: 38
+
+            RowLayout {
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.leftMargin: 8
+                spacing: 8
+
+                Rectangle {
+                    width: 13
+                    height: 13
+                    radius: 6.5
+                    color: "#FF5F56"
+                    border.width: 0.5
+                    border.color: "#E0443E"
+                    MouseArea {
+                        anchors.fill: parent
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: root.close()
+                    }
+                }
+                Rectangle {
+                    width: 13
+                    height: 13
+                    radius: 6.5
+                    color: "#FFBD2E"
+                    border.width: 0.5
+                    border.color: "#DEA123"
+                    MouseArea {
+                        anchors.fill: parent
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: root.showMinimized()
+                    }
+                }
+                Rectangle {
+                    width: 13
+                    height: 13
+                    radius: 6.5
+                    color: "#27C93F"
+                    border.width: 0.5
+                    border.color: "#1AAB29"
+                    MouseArea {
+                        anchors.fill: parent
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: {
+                            if (root.visibility === Window.FullScreen) root.showNormal();
+                            else root.showFullScreen();
+                        }
+                    }
+                }
+            }
+
             StyledText {
                 id: titleText
-                anchors {
-                    left: Config.options.windows.centerTitle ? undefined : parent.left
-                    horizontalCenter: Config.options.windows.centerTitle ? parent.horizontalCenter : undefined
-                    verticalCenter: parent.verticalCenter
-                    leftMargin: 12
-                }
+                anchors.centerIn: parent
                 color: Appearance.colors.colOnLayer0
                 text: Translation.tr("Settings")
                 font {
                     family: Appearance.font.family.title
-                    pixelSize: Appearance.font.pixelSize.title
-                    variableAxes: Appearance.font.variableAxes.title
-                }
-            }
-            RowLayout { // Window controls row
-                id: windowControlsRow
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.right: parent.right
-                RippleButton {
-                    buttonRadius: Appearance.rounding.full
-                    implicitWidth: 35
-                    implicitHeight: 35
-                    onClicked: root.close()
-                    contentItem: MaterialSymbol {
-                        anchors.centerIn: parent
-                        horizontalAlignment: Text.AlignHCenter
-                        text: "close"
-                        iconSize: 20
-                    }
+                    pixelSize: Appearance.font.pixelSize.large
+                    weight: Font.DemiBold
                 }
             }
         }
