@@ -329,8 +329,8 @@ Singleton {
                 property real hoverRegionHeight: 2
                 property bool pinnedOnStartup: true
                 property bool hoverToReveal: false // When false, stays visible on desktop
-                property list<string> pinnedApps: [ // IDs of pinned entries
-                    "kitty", "google-chrome-stable", "code", "org.kde.dolphin", "spotify" ]
+                property list<string> pinnedApps: [ // Real installed app IDs only
+                    "kitty", "google-chrome", "brave-browser", "org.kde.dolphin", "systemsettings" ]
                 property list<string> ignoredAppRegexes: []
             }
 
@@ -540,7 +540,7 @@ Singleton {
                 }
 
                 property JsonObject quickSliders: JsonObject {
-                    property bool enable: false
+                    property bool enable: true
                     property bool showMic: false
                     property bool showVolume: true
                     property bool showBrightness: true
