@@ -8,7 +8,7 @@ hl.config({
         gaps_workspaces = 50,
         border_size = 2,
         col = {
-            active_border = "rgba(00E5FFEE) rgba(7000FFEE) 45deg",
+            active_border = "rgba(00E5FFEE)",
             inactive_border = "rgba(181818AA)"
         },
         resize_on_border = true,
