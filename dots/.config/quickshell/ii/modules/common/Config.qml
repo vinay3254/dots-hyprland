@@ -326,9 +326,9 @@ Singleton {
                 property bool enable: true
                 property bool monochromeIcons: false
                 property real height: 64
-                property real hoverRegionHeight: 2
-                property bool pinnedOnStartup: true
-                property bool hoverToReveal: false // When false, stays visible on desktop
+                property real hoverRegionHeight: 8
+                property bool pinnedOnStartup: false
+                property bool hoverToReveal: true // Auto-hide with 3s popup
                 property list<string> pinnedApps: [ // Real installed app IDs only
                     "kitty", "google-chrome", "brave-browser", "org.kde.dolphin", "systemsettings" ]
                 property list<string> ignoredAppRegexes: []

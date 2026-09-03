@@ -27,7 +27,18 @@ Scope { // Scope
             screen: modelData
             visible: !GlobalStates.screenLocked
 
-            property bool reveal: root.pinned || (Config.options?.dock.hoverToReveal && dockMouseArea.containsMouse) || dockApps.requestDockShow || (!ToplevelManager.activeToplevel?.activated)
+            property bool poppedUp: false
+
+            Timer {
+                id: autoHideTimer
+                interval: 3000 // Stay visible for 3 seconds after mouse leaves
+                repeat: false
+                onTriggered: {
+                    dockRoot.poppedUp = false;
+                }
+            }
+
+            property bool reveal: root.pinned || dockRoot.poppedUp || dockMouseArea.containsMouse || dockApps.requestDockShow
 
             anchors {
                 bottom: true
@@ -58,6 +69,15 @@ Scope { // Scope
                 implicitWidth: dockHoverRegion.implicitWidth + Appearance.sizes.elevationMargin * 2
                 hoverEnabled: true
 
+                onContainsMouseChanged: {
+                    if (containsMouse) {
+                        autoHideTimer.stop();
+                        dockRoot.poppedUp = true;
+                    } else {
+                        autoHideTimer.restart();
+                    }
+                }
+
                 Behavior on anchors.topMargin {
                     animation: Appearance.animation.elementMoveFast.numberAnimation.createObject(this)
                 }
@@ -78,18 +98,14 @@ Scope { // Scope
                         implicitWidth: dockRow.implicitWidth + 5 * 2
                         height: parent.height - Appearance.sizes.elevationMargin - Appearance.sizes.hyprlandGapsOut
 
-                        StyledRectangularShadow {
-                            target: dockVisualBackground
-                        }
-                        Rectangle { // The real rectangle that is visible
+                        Rectangle { // Transparent dock background
                             id: dockVisualBackground
                             property real margin: Appearance.sizes.elevationMargin
                             anchors.fill: parent
                             anchors.topMargin: Appearance.sizes.elevationMargin
                             anchors.bottomMargin: Appearance.sizes.hyprlandGapsOut
-                            color: Appearance.colors.colLayer0
-                            border.width: 1
-                            border.color: Appearance.colors.colLayer0Border
+                            color: "transparent"
+                            border.width: 0
                             radius: Appearance.rounding.large
                         }
 
@@ -102,7 +118,7 @@ Scope { // Scope
                             property real padding: 5
 
                             VerticalButtonGroup {
-                                Layout.topMargin: Appearance.sizes.hyprlandGapsOut // why does this work
+                                Layout.topMargin: Appearance.sizes.hyprlandGapsOut
                                 GroupButton {
                                     // Pin button
                                     baseWidth: 35
