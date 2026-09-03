@@ -1,15 +1,15 @@
 -- Custom Hyprland General & Decoration Overrides
--- Pure Black #000000 Theme + Clean Gaps & Borders
+-- Pure Black #000000 Theme + Borderless Windows
 
 hl.config({
     general = {
         gaps_in = 6,
         gaps_out = 10,
         gaps_workspaces = 50,
-        border_size = 2,
+        border_size = 0,
         col = {
-            active_border = "rgba(00E5FFEE)",
-            inactive_border = "rgba(181818AA)"
+            active_border = "rgba(00000000)",
+            inactive_border = "rgba(00000000)"
         },
         resize_on_border = true,
         allow_tearing = true,
