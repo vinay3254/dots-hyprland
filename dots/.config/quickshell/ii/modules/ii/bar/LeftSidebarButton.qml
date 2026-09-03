@@ -14,7 +14,7 @@ RippleButton {
     property bool animeEnabled: Config.options.policies.weeb !== 0
     visible: translatorEnabled || animeEnabled
 
-    property real buttonPadding: 5
+    property real buttonPadding: 8
     implicitWidth: distroIcon.width + buttonPadding * 2
     implicitHeight: distroIcon.height + buttonPadding * 2
     buttonRadius: Appearance.rounding.full
@@ -39,8 +39,8 @@ RippleButton {
     CustomIcon {
         id: distroIcon
         anchors.centerIn: parent
-        width: 19.5
-        height: 19.5
+        width: 24
+        height: 24
         source: Config.options.bar.topLeftIcon == 'distro' ? SystemInfo.distroIcon : `${Config.options.bar.topLeftIcon}-symbolic`
         colorize: true
         color: Appearance.colors.colOnLayer0

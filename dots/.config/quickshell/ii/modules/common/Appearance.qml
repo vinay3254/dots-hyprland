@@ -235,15 +235,15 @@ Singleton {
             })
         }
         property QtObject pixelSize: QtObject {
-            property int smallest: 10
-            property int smaller: 12
-            property int smallie: 13
-            property int small: 15
-            property int normal: 16
-            property int large: 17
-            property int larger: 19
-            property int huge: 22
-            property int hugeass: 23
+            property int smallest: 11
+            property int smaller: 13
+            property int smallie: 14
+            property int small: 16
+            property int normal: 17
+            property int large: 19
+            property int larger: 22
+            property int huge: 25
+            property int hugeass: 28
             property int title: huge
         }
     }
@@ -385,7 +385,7 @@ Singleton {
     }
 
     sizes: QtObject {
-        property real baseBarHeight: 48
+        property real baseBarHeight: 58
         property real barHeight: Config.options.bar.cornerStyle === 1 ? 
             (baseBarHeight + root.sizes.hyprlandGapsOut * 2) : baseBarHeight
         property real barCenterSideModuleWidth: Config.options?.bar.verbose ? 360 : 140
