@@ -1,18 +1,37 @@
-# Hyprland Dotfiles
+# Hyprland Dotfiles — "Requiem" Noir/Rust Edition
 
-Personal Wayland desktop configuration for Arch Linux. Built around Hyprland, Quickshell, Kitty, and Matugen.
+Personal Wayland desktop configuration for Arch Linux. Built around a deep charcoal `#0d0d0d` base and rust-orange `#b5502d` accents with Apple fluid spring physics and optical typography.
 
 ---
 
-## Desktop Overview
+## Theming & Palette
 
-- **Compositor:** Hyprland 0.55+ (Wayland)
-- **Top Bar & Shell:** Quickshell (`ii` family) with an enlarged macOS-style status bar (48px)
-- **Application Launcher:** Fuzzel (Spotlight-style centered fuzzy search)
-- **Terminals:** Kitty & Foot (Pure `#000000` pitch-black background)
-- **Lockscreen & Session:** Hyprlock & frosted glass Wlogout capsules
-- **Motion & Physics:** Apple fluid spring curves (`appleSpring`), continuous squircle curvature, and 1:1 trackpad gestures
-- **Bloat Removal:** Gemini/AI subsystems and background telemetry disabled
+| Token | Hex | Role |
+|---|---|---|
+| **Background** | `#0d0d0d` | Deep charcoal base |
+| **Surface** | `#1a1a1a` | Cards, popups, control center |
+| **Surface Selected** | `#26201d` | Active / Hover items |
+| **Accent (Rust)** | `#b5502d` | Active borders, indicators |
+| **Accent Glow** | `#d96b3d` | Focus highlights & glows |
+| **Text Primary** | `#e8e0d5` | Warm cream text |
+| **Text Muted** | `#8c827a` | Secondary text / hints |
+
+---
+
+## Stack Components
+
+| Component | Software | Description |
+|---|---|---|
+| **Compositor** | [Hyprland](https://github.com/hyprwm/hyprland) 0.55+ | Dynamic tiling Wayland compositor with Apple spring curves |
+| **Top Bar & Shell** | [Quickshell](https://quickshell.outfoxxed.me/) | 58px transparent floating island top bar + 1s auto-hide dock |
+| **App Launcher** | [Rofi-Wayland](https://github.com/lbonn/rofi-wayland) / [Fuzzel](https://codeberg.org/dnkl/fuzzel) | Centered Noir/Rust application search |
+| **Notification Center** | [SwayNC](https://github.com/ErikReider/SwayNotificationCenter) | Frosted glass notification center with volume/brightness sliders |
+| **Wallpaper Engine** | [SWWW](https://github.com/LGFae/swww) | GPU-accelerated crossfade wallpaper daemon (`Super + W`) |
+| **Lock Screen** | [Hyprlock](https://github.com/hyprwm/hyprlock) | Blurred screenshot backdrop with optical clock & password pill |
+| **Idle Management** | [Hypridle](https://github.com/hyprwm/hypridle) | 2.5m dim, 5m lock, 5.5m screen-off, 15m suspend |
+| **Screenshots** | [Grimblast](https://github.com/hyprwm/contrib/tree/main/grimblast) | Area, window, and fullscreen captures with clipboard copy |
+| **Power Menu** | [Wlogout](https://github.com/ArtsyMacaw/wlogout) | Translucent circular capsule session menu |
+| **GTK & Cursor** | `adw-gtk3-dark` + `Bibata-Modern-Classic` | Seamless dark theme with 24px cursor |
 
 ---
 
@@ -20,21 +39,42 @@ Personal Wayland desktop configuration for Arch Linux. Built around Hyprland, Qu
 
 | Gesture | Action |
 |---|---|
-| **3-Finger Swipe (Horizontal)** | Inertial 1:1 Workspace Switching |
+| **3-Finger Swipe (Horizontal)** | 1:1 Inertial Spaces / Workspace switching |
 | **3-Finger Swipe (Vertical)** | Move focused window |
-| **3-Finger Pinch In/Out** | Toggle Fullscreen / Float |
+| **3-Finger Pinch In/Out** | Toggle Window Fullscreen |
 | **4-Finger Swipe Up** | Mission Control / Workspace Overview |
-| **4-Finger Swipe Down** | Action Center / Notifications |
-| **4-Finger Pinch** | Spotlight App Search (Fuzzel) |
+| **4-Finger Swipe Down** | Action Center / Notifications Panel |
+| **4-Finger Pinch** | Spotlight App Search (Rofi / Fuzzel) |
 
 ---
 
-## Keyboard Shortcuts
+## Keybindings Reference
 
-### Window Management
+### Applications & Utilities
 | Keybinding | Action |
 |---|---|
+| `Super + Space` | Launch Application Search (Rofi) |
+| `Super + R` | Run Command (Rofi) |
 | `Super + Enter` | Open Terminal (Kitty) |
+| `Super + B` | Launch Web Browser |
+| `Super + C` | Launch Code Editor |
+| `Super + E` | Launch File Manager |
+| `Super + W` | Cycle Wallpaper with Crossfade (SWWW) |
+| `Super + N` | Toggle Notification Center (SwayNC) |
+| `Ctrl + Shift + Esc` | Task Manager / Btop |
+| `Ctrl + Alt + Del` | Power / Session Menu (Wlogout) |
+| `Super + Shift + C` | Color Picker to Clipboard (`hyprpicker`) |
+
+### Screenshots (Grimblast)
+| Keybinding | Action |
+|---|---|
+| `Super + Shift + S` | Select Area >> Save to `~/Pictures/Screenshots` + Copy |
+| `Super + Alt + S` | Active Window >> Save to `~/Pictures/Screenshots` + Copy |
+| `Print` | Fullscreen >> Save to `~/Pictures/Screenshots` + Copy |
+
+### Window Management (Vim Navigation)
+| Keybinding | Action |
+|---|---|
 | `Super + Q` | Close focused window |
 | `Super + F` | Toggle fullscreen |
 | `Super + Shift + Space` | Toggle floating mode |
@@ -42,51 +82,13 @@ Personal Wayland desktop configuration for Arch Linux. Built around Hyprland, Qu
 | `Super + H / J / K / L` | Focus Left / Down / Up / Right (Vim) |
 | `Super + Shift + H / J / K / L` | Swap window position (Vim) |
 | `Super + Alt + H / J / K / L` | Resize window (Vim) |
-| `Super + [1-9]` | Switch to workspace 1-9 |
-| `Super + Shift + [1-9]` | Move active window to workspace 1-9 |
-
-### System & Shell
-| Keybinding | Action |
-|---|---|
-| `Super + Space` / `Super + /` | Spotlight App Search (Fuzzel) |
-| `Super + B` | Launch Web Browser |
-| `Super + C` | Launch Code Editor |
-| `Super + E` | Launch File Manager |
-| `Super + Tab` | Workspace Overview |
-| `Super + N` | Toggle Notifications / Action Center |
-| `Super + J` | Toggle Top Status Bar |
-| `Super + V` | Open Clipboard History |
-| `Super + Period` | Emoji Picker |
-| `Ctrl + Shift + Esc` | Task Manager / Btop |
-| `Ctrl + Alt + Del` | Session / Power Menu |
-| `Print` | Capture screenshot to clipboard & disk |
-
----
-
-## Repository Structure
-
-```text
-├── dots/
-│   └── .config/
-│       ├── hypr/           # Hyprland config (general, keybinds, rules, custom overrides)
-│       ├── quickshell/     # Quickshell UI widgets, bar, control center, and modules
-│       ├── matugen/        # Dynamic color schemes & templates
-│       ├── kitty/          # Kitty terminal emulator configuration
-│       ├── foot/           # Foot lightweight terminal config
-│       ├── fuzzel/         # App launcher styling
-│       ├── wlogout/        # Power menu layout & frosted styling
-│       └── starship.toml   # Shell prompt theme
-├── sdata/                  # System scripts & dependency manifests
-├── setup                   # Interactive installation script
-└── diagnose                # System diagnostics helper
-```
 
 ---
 
 ## Installation
 
 ```bash
-# Clone with all submodules
+# Clone with submodules
 git clone --recurse-submodules https://github.com/vinay3254/dots-hyprland.git ~/.config/dots-hyprland
 cd ~/.config/dots-hyprland
 

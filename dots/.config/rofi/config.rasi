@@ -1,0 +1,129 @@
+configuration {
+    modi:                       "drun,run,filebrowser";
+    show-icons:                 true;
+    display-drun:               "APPS";
+    display-run:                "RUN";
+    display-filebrowser:        "FILES";
+    drun-display-format:        "{name}";
+    font:                       "JetBrainsMono Nerd Font 11";
+}
+
+@theme "/dev/null"
+
+* {
+    bg-base:                    #0d0d0df2;
+    bg-surface:                 #1a1a1af5;
+    bg-selected:                #26201df5;
+    rust-accent:                #b5502d;
+    rust-glow:                  #d96b3d;
+    text-primary:               #e8e0d5;
+    text-muted:                 #8c827a;
+    border-subtle:              #b5502d40;
+    
+    background-color:           transparent;
+    text-color:                 @text-primary;
+    margin:                     0px;
+    padding:                    0px;
+}
+
+window {
+    transparency:               "real";
+    location:                   center;
+    anchor:                     center;
+    fullscreen:                 false;
+    width:                      620px;
+    x-offset:                   0px;
+    y-offset:                   0px;
+
+    enabled:                    true;
+    margin:                     0px;
+    padding:                    0px;
+    border:                     1px solid;
+    border-color:               @border-subtle;
+    border-radius:              14px;
+    background-color:           @bg-base;
+    cursor:                     "default";
+}
+
+mainbox {
+    enabled:                    true;
+    spacing:                    12px;
+    padding:                    24px;
+    background-color:           transparent;
+    children:                   [ "inputbar", "listview" ];
+}
+
+inputbar {
+    enabled:                    true;
+    spacing:                    10px;
+    padding:                    10px 14px;
+    border-radius:              10px;
+    background-color:           @bg-surface;
+    border:                     1px solid;
+    border-color:               @border-subtle;
+    text-color:                 @text-primary;
+    children:                   [ "prompt", "entry" ];
+}
+
+prompt {
+    enabled:                    true;
+    background-color:           transparent;
+    text-color:                 @rust-accent;
+    font:                       "JetBrainsMono Nerd Font Bold 11";
+}
+
+entry {
+    enabled:                    true;
+    background-color:           transparent;
+    text-color:                 @text-primary;
+    cursor:                     text;
+    placeholder:                "Search applications...";
+    placeholder-color:          @text-muted;
+}
+
+listview {
+    enabled:                    true;
+    columns:                    1;
+    lines:                      7;
+    cycle:                      true;
+    dynamic:                    true;
+    scrollbar:                  false;
+    layout:                     vertical;
+    reverse:                    false;
+    fixed-height:               true;
+    fixed-columns:              true;
+    spacing:                    6px;
+    background-color:           transparent;
+}
+
+element {
+    enabled:                    true;
+    spacing:                    12px;
+    padding:                    10px 14px;
+    border-radius:              8px;
+    background-color:           transparent;
+    text-color:                 @text-primary;
+    cursor:                     pointer;
+}
+
+element selected.normal {
+    background-color:           @bg-selected;
+    text-color:                 @text-primary;
+    border:                     1px solid;
+    border-color:               @rust-accent;
+}
+
+element-icon {
+    background-color:           transparent;
+    size:                       24px;
+    cursor:                     inherit;
+}
+
+element-text {
+    background-color:           transparent;
+    text-color:                 inherit;
+    highlight:                  inherit;
+    cursor:                     inherit;
+    vertical-align:             0.5;
+    horizontal-align:           0.0;
+}
