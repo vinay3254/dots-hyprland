@@ -1,0 +1,49 @@
+* {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "JetBrainsMono Nerd Font", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  min-height: 0;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+}
+
+window#waybar {
+  background-color: rgba(30, 30, 30, 0.75);
+  color: #f5f5f7;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+#custom-apple {
+  font-size: 16px;
+  padding: 0 14px 0 12px;
+  color: #f5f5f7;
+}
+
+#window {
+  padding: 0 10px 0 2px;
+  color: #f5f5f7;
+}
+
+#custom-menu-file,
+#custom-menu-edit,
+#custom-menu-view,
+#custom-menu-window,
+#custom-menu-help {
+  padding: 0 9px;
+  color: rgba(245, 245, 247, 0.50);
+}
+
+#custom-control-center,
+#network,
+#battery,
+#bluetooth,
+#clock {
+  padding: 0 8px;
+  color: #f5f5f7;
+}
+
+#clock.time {
+  padding-right: 14px;
+}

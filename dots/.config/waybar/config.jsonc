@@ -1,0 +1,77 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 28,
+  "spacing": 0,
+  "modules-left": [
+    "custom/apple",
+    "hyprland/window",
+    "custom/menu-file",
+    "custom/menu-edit",
+    "custom/menu-view",
+    "custom/menu-window",
+    "custom/menu-help"
+  ],
+  "modules-right": [
+    "custom/control-center",
+    "network",
+    "battery",
+    "bluetooth",
+    "clock#date",
+    "clock#time"
+  ],
+  "custom/apple": {
+    "format": "󰀵",
+    "tooltip": false,
+    "on-click": "pkill rofi || rofi -show drun -config ~/.config/rofi/spotlight-dark.rasi || pkill fuzzel || fuzzel"
+  },
+  "hyprland/window": {
+    "format": "<b>{}</b>",
+    "separate-outputs": true,
+    "rewrite": {
+      "": "Finder",
+      "(.*) — Mozilla Firefox": "Firefox",
+      "(.*) - Google Chrome": "Google Chrome",
+      "(.*) - Visual Studio Code": "Code",
+      "kitty": "Terminal",
+      "(.*) - Dolphin": "Dolphin"
+    },
+    "max-length": 30
+  },
+  "custom/menu-file": { "format": "File", "tooltip": false },
+  "custom/menu-edit": { "format": "Edit", "tooltip": false },
+  "custom/menu-view": { "format": "View", "tooltip": false },
+  "custom/menu-window": { "format": "Window", "tooltip": false },
+  "custom/menu-help": { "format": "Help", "tooltip": false },
+  "custom/control-center": {
+    "format": "󰕢",
+    "tooltip-format": "Control Center",
+    "on-click": "swaync-client -t -sw || qs -c ii ipc call sidebarRight toggle"
+  },
+  "network": {
+    "format-wifi": "󰖩",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰖪",
+    "tooltip-format": "{essid} ({signalStrength}%)"
+  },
+  "battery": {
+    "states": { "warning": 20, "critical": 10 },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% 󰂄",
+    "format-icons": ["󰂃", "󰁺", "󰁼", "󰁾", "󰂀", "󰁹"]
+  },
+  "bluetooth": {
+    "format": "󰂯",
+    "format-connected": "󰂱",
+    "format-disabled": "󰂲",
+    "tooltip-format": "{controller_alias}\t{controller_address}"
+  },
+  "clock#date": {
+    "format": "{:%a %d %b}",
+    "tooltip": false
+  },
+  "clock#time": {
+    "format": "{:%I:%M %p}",
+    "tooltip": false
+  }
+}
