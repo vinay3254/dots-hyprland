@@ -1,11 +1,14 @@
 [DetailsMode]
-PreviewSize=32
+PreviewSize=24
 
 [General]
 GlobalViewProps=false
 ShowFullPath=true
-ShowStatusBar=FullWidth
+ShowStatusBar=false
 Version=202
+
+[IconsMode]
+PreviewSize=64
 
 [KFileDialog Settings]
 Places Icons Auto-resize=false
@@ -14,5 +17,17 @@ Places Icons Static Size=22
 [MainWindow]
 MenuBar=Disabled
 
+[Panel:Information]
+Visible=false
+
+[Panel:Places]
+IconSize=22
+
+[Panel:Terminal]
+Visible=false
+
 [PreviewSettings]
 Plugins=ffmpegthumbnailer,appimagethumbnail,audiothumbnail,avif,blenderthumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,fontthumbnail,heif,imagethumbnail,jpegthumbnail,jxl,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,mobithumbnail,opendocumentthumbnail,gsthumbnail,rawthumbnail,librsvg,svgthumbnail,ffmpegthumbs,gdk-pixbuf-thumbnailer,gsf-office
+
+[ViewPropertiesDialog]
+IsShowFilterBar=false

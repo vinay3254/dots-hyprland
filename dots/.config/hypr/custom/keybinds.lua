@@ -55,6 +55,6 @@ hl.bind("Print", hl.dsp.exec_cmd("mkdir -p ~/Pictures/Screenshots && (grimblast 
 
 -- 9. Session & Utilities
 hl.bind("SUPER + L", hl.dsp.exec_cmd("loginctl lock-session || hyprlock"), { description = "Lock Screen" })
-hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd("pkill wlogout || wlogout -p layer-shell"), { description = "Power / Session Menu (Wlogout)" })
+hl.bind("CTRL + ALT + Delete", hl.dsp.global("quickshell:sessionToggle"), { description = "Shell: Toggle session menu" })
 hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("hyprpicker -a"), { description = "Color Picker to Clipboard" })
 hl.bind("CTRL + SUPER + R", hl.dsp.exec_cmd("hyprctl reload && killall quickshell qs; qs -c $qsConfig &"), { description = "Reload Hyprland & Shell" })

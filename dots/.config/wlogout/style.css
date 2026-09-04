@@ -1,35 +1,71 @@
+/* ==============================================================================
+ * Apple macOS Session / Power Menu (wlogout)
+ * ============================================================================== */
+
 * {
     all: unset;
-    background-image: none;
-    transition: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 window {
-    background-color: rgba(13, 13, 13, 0.85);
+    background-color: rgba(11, 12, 14, 0.75);
 }
 
 button {
-    font-family: "JetBrainsMono Nerd Font", monospace;
-    font-size: 14px;
-    font-weight: bold;
-    background-color: #1a1a1a;
-    color: #e8e0d5;
-    margin: 1.2rem;
-    border-radius: 16px;
-    border: 1px solid rgba(181, 80, 45, 0.25);
-    padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    background-color: rgba(28, 28, 30, 0.85);
+    color: #F5F5F7;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    margin: 18px;
+    padding-bottom: 24px;
+    vertical-align: bottom;
+    background-repeat: no-repeat;
+    background-position: center 32%;
+    background-size: 48px;
+    transition: all 250ms cubic-bezier(0.34, 1.56, 0.64, 1.0);
 }
 
 button:hover {
-    background-color: #26201d;
-    border-color: #b5502d;
-    color: #d96b3d;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8), 0 0 16px rgba(181, 80, 45, 0.3);
+    background-color: rgba(44, 44, 46, 0.95);
+    border-color: #0A84FF;
+    color: #FFFFFF;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.7), 0 0 20px rgba(10, 132, 255, 0.35);
+    margin-top: 12px;
+    margin-bottom: 24px;
 }
 
-button:focus, button:active {
-    background-color: rgba(181, 80, 45, 0.25);
-    border-color: #d96b3d;
-    transform: scale(0.95);
+button:focus {
+    border-color: #0A84FF;
+}
+
+button:active {
+    background-color: #0A84FF;
+    color: #FFFFFF;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    transform: scale(0.96);
+    transition: all 80ms ease-out;
+}
+
+/* Individual Action Icons */
+#lock {
+    background-image: image(url("/usr/share/wlogout/icons/lock.png"));
+}
+
+#logout {
+    background-image: image(url("/usr/share/wlogout/icons/logout.png"));
+}
+
+#suspend {
+    background-image: image(url("/usr/share/wlogout/icons/suspend.png"));
+}
+
+#reboot {
+    background-image: image(url("/usr/share/wlogout/icons/reboot.png"));
+}
+
+#shutdown {
+    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"));
 }
